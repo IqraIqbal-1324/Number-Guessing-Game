@@ -1,0 +1,51 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.util.*;
+public class Number Guessing Game
+{
+    public static void main(String args[])
+    {
+        System.out.println("Welcome to Number Guessing Game!\nIt has 3 rounds and you have maximum 10 attempts for each round.");
+        int maxAttempts=10;
+        int score=0;
+        int TotalRounds=3;
+        
+     for (int round = 1; round<= TotalRounds; round++) 
+     {
+        boolean CorrectNumber = false;
+        Random random=new Random();
+        int x=random.nextInt(101);
+        System.out.println("\nRound "+round+ " starts now!");
+        System.out.println("Guess the number!\n The number is in between 1 and 100");
+        Scanner sc = new Scanner(System.in);
+        int LeftAttempts = maxAttempts;
+
+          while(!CorrectNumber && LeftAttempts>0)
+          {
+                 int y=sc.nextInt();
+                  LeftAttempts--;
+           
+         if (y == x) 
+         {
+               CorrectNumber = true;
+               int points = LeftAttempts + 1; 
+               score += points;
+               System.out.println("Congratulations! You guessed the number correctly.");
+                System.out.println("You have earned " + points + " points.\n");
+                }
+                else if (y < x)
+                {
+                    System.out.println("Higher");
+                } else
+                {
+                    System.out.println("Lower");
+                }
+           }
+         if (!CorrectNumber) 
+         {
+        System.out.println("\nYou've used all attempts.");
+         }
+         }
+         System.out.println("\nTotal Score:"+score);
+    }
+}
